@@ -1,0 +1,3 @@
+[submodule "juliamono"]
+	path = juliamono
+	url = git@github.com:cormullion/juliamono.git

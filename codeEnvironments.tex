@@ -1,0 +1,197 @@
+
+\usepackage{listings}
+\usepackage{xcolor}
+\RequirePackage{fontspec}
+
+\newfontfamily\JuliaMonoNormal{JuliaMono-Light.ttf}[
+    Path      = ../AgdaTexCodeFormatting/juliamono/,
+    Extension = .ttf
+    ]
+
+\newfontfamily\JuliaMonoItalic{JuliaMono-LightItalic.ttf}[
+    Path      = ../AgdaTexCodeFormatting/juliamono/,
+    Extension = .ttf
+    ]
+    
+\newfontfamily\JuliaMonoBold{JuliaMono-SemiBold.ttf}[
+    Path      = ../AgdaTexCodeFormatting/juliamono/,
+    Extension = .ttf
+    ]
+    
+
+\newcommand{\constarr}[1]{$\rightarrow$}
+\newcommand{\consttimes}[1]{$\times$}
+\newcommand{\constnat}[1]{$\NN$}
+\newcommand{\constbool}[1]{$\BB$}
+\newcommand{\constarrleft}[1]{$\leftarrow$}
+\newcommand{\constsigma}[1]{$\Sigma$}
+\newcommand{\consttimesSL}[1]{\JuliaMonoNormal{\_}$\times$}
+\newcommand{\consttimesSR}[1]{$\times$\JuliaMonoNormal{\_}}
+\newcommand{\consttimesSLSR}[1]{\JuliaMonoNormal{\_}$\times$\JuliaMonoNormal{\_}}
+\newcommand{\constforall}[1]{$\forall$}
+\newcommand{\consttop}[1]{$\top$}
+\newcommand{\constexists}[1]{$\exists$}
+\newcommand{\constimpl}[1]{$\Rightarrow$}
+\newcommand{\constbiimpl}[1]{$\Leftrightarrow$}
+\newcommand{\constequiv}[1]{$\equiv$}
+\newcommand{\constentails}[1]{$\models$}
+\newcommand{\constleq}[1]{$\leq$}
+\newcommand{\constgeq}[1]{$\geq$}
+\newcommand{\constbot}[1]{$\bot$}
+\newcommand{\constnotentails}[1]{$\not\models$}
+\newcommand{\constbiimplarr}[1]{$\leftrightarrow$}
+\newcommand{\constcompose}[1]{$\circ$}
+\newcommand{\constOmega}[1]{$\Omega$}
+\newcommand{\constRational}[1]{$\QQ$}
+\newcommand{\constConj}[1]{$\land$}
+\newcommand{\constDisj}[1]{$\lor$}
+\newcommand{\constmapsto}[1]{$\mapsto$}
+\newcommand{\constepsilon}[1]{$\epsilon$}
+\newcommand{\constdelta}[1]{$\delta$}
+\newcommand{\consttopbot}[1]{$_\bot^\top$}
+\newcommand{\constinv}[1]{$^{-1}$}
+\newcommand{\constmu}[1]{$\mu$}
+\newcommand{\constReal}[1]{$\RR$}
+\newcommand{\constProbab}[1]{$\PP$}
+\newcommand{\constnequiv}[1]{$\not\equiv$}
+
+
+
+\lstdefinestyle{mystyle}
+{
+    %language = C++,
+    basicstyle = {\JuliaMonoNormal},
+    %backgroundcolor = {\color{back-color}},
+    %stringstyle = {\color{string-color}},
+    keywordstyle = {\JuliaMonoBold},
+    keywordstyle = [2]{\JuliaMonoItalic},
+    keywordstyle = [3]{\JuliaMonoBold\colorbox{cyan}},
+    keywordstyle = [4]{\JuliaMonoNormal\constarr},
+    keywordstyle = [5]{\JuliaMonoNormal\consttimes},
+    keywordstyle = [6]{\JuliaMonoNormal\constnat},
+    keywordstyle = [7]{\JuliaMonoNormal\constbool},
+    keywordstyle = [8]{\JuliaMonoNormal\constarrleft},
+    keywordstyle = [9]{\JuliaMonoNormal\constsigma},
+    keywordstyle = [10]{\JuliaMonoNormal\consttimesSL},
+    keywordstyle = [11]{\JuliaMonoNormal\consttimesSR},
+    keywordstyle = [12]{\JuliaMonoNormal\consttimesSLSR},
+    keywordstyle = [13]{\JuliaMonoNormal\constforall},
+    keywordstyle = [14]{\JuliaMonoNormal\consttop},
+    keywordstyle = [15]{\JuliaMonoNormal\constexists},
+    keywordstyle = [16]{\JuliaMonoNormal\constimpl},
+    keywordstyle = [17]{\JuliaMonoNormal\constbiimpl},
+    keywordstyle = [18]{\JuliaMonoNormal\constequiv},
+    keywordstyle = [19]{\JuliaMonoNormal\constentails},
+    keywordstyle = [20]{\JuliaMonoNormal\constleq},
+    keywordstyle = [21]{\JuliaMonoNormal\constgeq},
+    keywordstyle = [22]{\JuliaMonoNormal\constbot},
+    keywordstyle = [23]{\JuliaMonoNormal\constnotentails},
+    keywordstyle = [24]{\JuliaMonoNormal\constbiimplarr},
+    keywordstyle = [25]{\JuliaMonoNormal\constcompose},
+    keywordstyle = [26]{\JuliaMonoNormal\constOmega},
+    keywordstyle = [27]{\JuliaMonoNormal\constRational},
+    keywordstyle = [28]{\JuliaMonoNormal\constConj},
+    keywordstyle = [29]{\JuliaMonoNormal\constDisj},
+    keywordstyle = [30]{\JuliaMonoNormal\constmapsto},
+    keywordstyle = [31]{\JuliaMonoNormal\constepsilon},
+    keywordstyle = [32]{\JuliaMonoNormal\constdelta},
+    keywordstyle = [33]{\JuliaMonoNormal\consttopbot},
+    keywordstyle = [34]{\JuliaMonoNormal\constinv},
+    keywordstyle = [35]{\JuliaMonoNormal\constmu},
+    keywordstyle = [36]{\JuliaMonoNormal\constReal},
+    keywordstyle = [37]{\JuliaMonoNormal\constProbab},
+    keywordstyle = [38]{\JuliaMonoNormal\constnequiv},
+    alsoletter = {\{, \}, !, -, >, <, =, |, /,\\ },
+    morekeywords = {data, with, where, record, let, field, variable, open, public, pattern, do, module, constructor, renaming, instance, syntax},
+    morekeywords = [2]{},
+    morekeywords = [3]{\{!!\}, \{!0!\}, \{!1!\}, \{!2!\}, \{!3!\}, \{!4!\} },
+    morekeywords = [4]{->},
+    morekeywords = [5]{-x-},
+    morekeywords = [6]{Nat},
+    morekeywords = [7]{Bool},
+    morekeywords = [8]{<-},
+    morekeywords = [9]{Sigma},
+    morekeywords = [10]{_-x-},
+    morekeywords = [11]{-x-_},
+    morekeywords = [12]{_-x-_},
+    morekeywords = [13]{forall},
+    morekeywords = [14]{tt},
+    morekeywords = [15]{exists},
+    morekeywords = [16]{=>},
+    morekeywords = [17]{<=>},
+    morekeywords = [18]{===},
+    morekeywords = [19]{|=},
+    morekeywords = [20]{leq},    
+    morekeywords = [21]{geq}, 
+    morekeywords = [22]{BOT},
+    morekeywords = [23]{|/=},
+    morekeywords = [24]{<->},
+    morekeywords = [25]{o},
+    morekeywords = [26]{Omega},
+    morekeywords = [27]{Rational, Ratio},
+    morekeywords = [28]{/\\},
+    morekeywords = [29]{\\/},
+    morekeywords = [30]{|->},
+    morekeywords = [31]{epsilon},
+    morekeywords = [32]{delta},
+    morekeywords = [33]{tb},
+    morekeywords = [34]{inv},
+    morekeywords = [35]{mu},
+    morekeywords = [36]{Real},
+    morekeywords = [37]{PP},
+    morekeywords = [38]{=/=},
+    tabsize=4,
+    mathescape=true,
+    %breaklines = true,
+    xleftmargin=10pt,
+    xrightmargin=10pt
+}
+
+%modified from https://tex.stackexchange.com/questions/116595/highlighting-haskell-listings-in-large-tex-document
+\lstdefinestyle{haskellStyle}{
+  frame=none,
+  xleftmargin=2pt,
+  %stepnumber=1,
+  %numbers=left,
+  %numbersep=5pt,
+  %numberstyle=\JuliaMonoNormal\tiny\color[gray]{0.3},
+  belowcaptionskip=\bigskipamount,
+  captionpos=b,
+  escapeinside={*'}{'*},
+  language=haskell,
+  tabsize=2,
+  emphstyle={\bf},
+  commentstyle=\it,
+  stringstyle=\JuliaMonoNormal,
+  showspaces=false,
+  keywordstyle=\JuliaMonoBold,
+  %columns=flexible,
+  basicstyle=\JuliaMonoNormal,
+  showstringspaces=false,
+  morecomment=[l]\%,
+  keywordstyle = [4]{\JuliaMonoNormal\constarr},
+  morekeywords = [4]{->},
+  deletekeywords={read},
+  mathescape=true,
+}
+
+
+%These commands should be in the code-environment, but that'd mean that they couldn't be used inline
+\newcommand{\arr}{\rightarrow}
+\newcommand{\arrleft}{\leftarrow}
+\newcommand{\impl}{\Rightarrow}
+\renewcommand{\iff}{\Leftrightarrow}
+\newcommand{\fmap}{<\!\!\$\!\!>}
+
+\lstnewenvironment{code}{
+	\lstset{style = mystyle}
+	}{}
+
+\lstnewenvironment{haskell}{
+	\lstset{style = haskellStyle}
+	}{}
+	
+%\lstMakeShortInline[columns=fixed, style = mystyle]|
+
+\newcommand{\inlcode}[1]{\lstinline[columns=fixed, style = mystyle]|#1|}
+\newcommand{\hscode}[1]{\lstinline[columns=fixed, style = haskellStyle]|#1|}
