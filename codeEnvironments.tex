@@ -186,7 +186,10 @@
 
 \lstnewenvironment{code}{
 	\lstset{style = mystyle}
-	}{}
+	\minipage{\linewidth}
+	}{
+	\endminipage
+	}
 	
 \surroundwithmdframed[
   %hidealllines=true,
@@ -203,7 +206,9 @@
 \newsavebox{\mybox}		
 \lstnewenvironment{AgdaOutput}{
 	\lstset{style = mystyle} %  backgroundcolor=\color{lightgray}
+	\minipage{\linewidth}
 	}{
+	\endminipage
 	}
 
 
@@ -220,7 +225,8 @@
 
 \lstnewenvironment{haskell}{
 	\lstset{style = haskellStyle}
-	}{}
+	\minipage{\linewidth}
+	}{\endminipage}
 	
 %\lstMakeShortInline[columns=fixed, style = mystyle]|
 
