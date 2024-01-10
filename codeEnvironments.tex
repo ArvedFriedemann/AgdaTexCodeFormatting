@@ -228,7 +228,24 @@
 	\minipage{\linewidth}
 	}{\endminipage}
 	
+\surroundwithmdframed[
+  %hidealllines=true,
+  %backgroundcolor=lightgray,
+  %outerlinewidth=2,
+  leftmargin=5,
+  rightmargin=5,
+  outerlinecolor=lightgray,
+  innerleftmargin=0pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt]{java}
+	
+\lstnewenvironment{java}{
+	\lstset{style = haskellStyle, language = Java}
+	\minipage{\linewidth}
+	}{\endminipage}
+	
 %\lstMakeShortInline[columns=fixed, style = mystyle]|
 
 \newcommand{\inlcode}[1]{\lstinline[columns=fixed, style = mystyle]|#1|}
+\newcommand{\ic}[1]{\inlcode{#1}}
 \newcommand{\hscode}[1]{\lstinline[columns=fixed, style = haskellStyle]|#1|}
