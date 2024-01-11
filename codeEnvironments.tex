@@ -201,6 +201,13 @@
   innerleftmargin=0pt,
   innertopmargin=0pt,
   innerbottommargin=0pt]{code}
+  
+\lstnewenvironment{plaincode}{
+	\lstset{style = mystyle}
+	\minipage{\linewidth}
+	}{
+	\endminipage
+	}
 
 	
 \newsavebox{\mybox}		
