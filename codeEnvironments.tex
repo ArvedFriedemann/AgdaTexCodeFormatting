@@ -103,7 +103,7 @@
     keywordstyle = [37]{\JuliaMonoNormal\constProbab},
     keywordstyle = [38]{\JuliaMonoNormal\constnequiv},
     alsoletter = {\{, \}, !, -, >, <, =, |, /,\\ },
-    morekeywords = {data, with, where, record, let, field, variable, open, public, pattern, do, module, constructor, renaming, instance, syntax, using, hiding, private},
+    morekeywords = {data, with, where, record, let, field, variable, open, public, pattern, do, module, constructor, renaming, instance, syntax, using, hiding, private, infix, infixr, infixl},
     morekeywords = [2]{},
     morekeywords = [3]{\{!!\}, \{!0!\}, \{!1!\}, \{!2!\}, \{!3!\}, \{!4!\} },
     morekeywords = [4]{->},
@@ -190,6 +190,16 @@
 	}{
 	\endminipage
 	}
+
+\lstnewenvironment{pseudocode}{
+  \lstset{style = mystyle}
+  \minipage{\linewidth}
+  \vspace*{2pt}
+  \hspace*{2pt}
+  \textit{pseudocode:}
+  }{
+  \endminipage
+  }
 	
 \surroundwithmdframed[
   %hidealllines=true,
@@ -201,6 +211,17 @@
   innerleftmargin=0pt,
   innertopmargin=0pt,
   innerbottommargin=0pt]{code}
+
+\surroundwithmdframed[
+  %hidealllines=true,
+  %backgroundcolor=lightgray,
+  %outerlinewidth=2,
+  leftmargin=5,
+  rightmargin=5,
+  outerlinecolor=lightgray,
+  innerleftmargin=0pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt]{pseudocode}
   
 \lstnewenvironment{plaincode}{
 	\lstset{style = mystyle}
