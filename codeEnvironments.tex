@@ -200,6 +200,16 @@
   }{
   \endminipage
   }
+
+\lstnewenvironment{codent}{
+  \lstset{style = mystyle}
+  \minipage{\linewidth}
+  \vspace*{2pt}
+  \hspace*{2pt}
+  \textit{non terminating:}
+  }{
+  \endminipage
+  }
 	
 \surroundwithmdframed[
   %hidealllines=true,
@@ -211,6 +221,19 @@
   innerleftmargin=0pt,
   innertopmargin=0pt,
   innerbottommargin=0pt]{code}
+
+\definecolor{ndetalert}{RGB}{255, 135, 98}
+
+\surroundwithmdframed[
+  %hidealllines=true,
+  %backgroundcolor=lightgray,
+  %outerlinewidth=2,
+  leftmargin=5,
+  rightmargin=5,
+  %outerlinecolor=ndetalert,
+  innerleftmargin=0pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt]{codent}
 
 \surroundwithmdframed[
   %hidealllines=true,
