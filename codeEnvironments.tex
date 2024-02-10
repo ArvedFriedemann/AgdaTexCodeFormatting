@@ -4,6 +4,8 @@
 \RequirePackage{fontspec}
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage{adjustbox}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc}
 
 \newfontfamily\JuliaMonoNormal{JuliaMono-Light.ttf}[
     Path      = ../AgdaTexCodeFormatting/juliamono/,
@@ -144,7 +146,7 @@
     morekeywords = [37]{PP},
     morekeywords = [38]{=/=},
     tabsize=4,
-    mathescape=true,
+    mathescape=true, 
     %breaklines = true,
     xleftmargin=\codeLeftMargin,
     xrightmargin=\codeLeftMargin
@@ -180,6 +182,18 @@
   mathescape=true,
 }
 
+\newlength{\whatsleft}
+%measure the remainding length of text
+\newcommand{\measureremainder}[1]{%
+\begin{tikzpicture}[overlay,remember picture]
+    % Measure distance to right text border
+    \path let \p0 = (0,0), \p1 = (current page text area.east) in
+        [/utils/exec={\pgfmathsetlength#1{\x1-\x0}\global#1=#1}];
+\end{tikzpicture}%
+}
+%Usage:
+% \measureremainder{\whatsleft} and then use \whatsleft where you need it
+
 
 %These commands should be in the code-environment, but that'd mean that they couldn't be used inline
 \newcommand{\arr}{\rightarrow}
@@ -188,24 +202,36 @@
 \renewcommand{\iff}{\Leftrightarrow}
 \newcommand{\fmap}{<\!\!\$\!\!>}
 
-\newcommand{\adjustboxWidth}{\textwidth-\codeLeftMargin-\codeLeftMargin-\codeLeftMargin-\codeLeftMargin}
+\newcommand{\adjustboxWidth}{\linewidth-\codeLeftMargin-\codeLeftMargin-\codeLeftMargin-\codeLeftMargin}
 
 \lstnewenvironment{code}{
 	\lstset{style = mystyle}
-	\minipage{\linewidth}
-  \adjustbox{max width=\adjustboxWidth, margin = \codeLeftMargin 0ex}\bgroup
+	\minipage[t]{\linewidth}
+  \measureremainder{\whatsleft}%problem: measurement can interfere with the page!
+  \adjustbox{max width=\whatsleft-\codeLeftMargin, margin = \codeLeftMargin 0ex}\bgroup
 	}{
   \egroup
 	\endminipage
 	}
 
+  %for when the measurement until the line end breaks things
+\lstnewenvironment{unmeasuredcode}{
+  \lstset{style = mystyle}
+  \minipage[t]{\linewidth}
+  \adjustbox{max width=\linewidth-\codeLeftMargin, margin = \codeLeftMargin 0ex}\bgroup
+  }{
+  \egroup
+  \endminipage
+  }
+
 \lstnewenvironment{pseudocode}{
   \lstset{style = mystyle}
-  \minipage{\linewidth}
+  \minipage[t]{\linewidth}
   \vspace*{2pt}
   \hspace*{2pt}
   \textit{pseudocode:}\\
-  \adjustbox{max width=\adjustboxWidth, margin = \codeLeftMargin 0ex}\bgroup
+  \measureremainder{\whatsleft}%\adjustboxWidth
+  \adjustbox{max width=\whatsleft-\codeLeftMargin, margin = \codeLeftMargin 0ex}\bgroup
   }{
   \egroup
   \endminipage
@@ -213,11 +239,12 @@
 
 \lstnewenvironment{codent}{
   \lstset{style = mystyle}
-  \minipage{\linewidth}
+  \minipage[t]{\linewidth}
   \vspace*{2pt}
   \hspace*{2pt}
   \textit{no termination check:}\\
-  \adjustbox{max width=\adjustboxWidth, margin = \codeLeftMargin 0ex}\bgroup
+  \measureremainder{\whatsleft}%\adjustboxWidth
+  \adjustbox{max width=\whatsleft-\codeLeftMargin, margin = \codeLeftMargin 0ex}\bgroup
   }{
   \egroup
   \endminipage
@@ -233,6 +260,17 @@
   innerleftmargin=0pt,
   innertopmargin=0pt,
   innerbottommargin=0pt]{code}
+
+\surroundwithmdframed[
+  %hidealllines=true,
+  %backgroundcolor=lightgray,
+  %outerlinewidth=2,
+  leftmargin=5,
+  rightmargin=5,
+  outerlinecolor=lightgray,
+  innerleftmargin=0pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt]{unmeasuredcode}
 
 \definecolor{ndetalert}{RGB}{255, 135, 98}
 
@@ -260,8 +298,9 @@
   
 \lstnewenvironment{plaincode}{
 	\lstset{style = mystyle}
-	\minipage{\linewidth}
-  \adjustbox{max width=\adjustboxWidth, margin = \codeLeftMargin 0ex}\bgroup
+	\minipage[t]{\linewidth}
+  \measureremainder{\whatsleft}%\adjustboxWidth
+  \adjustbox{max width=\whatsleft, margin = 0pt 0pt}\bgroup
 	}{
   \egroup
 	\endminipage
