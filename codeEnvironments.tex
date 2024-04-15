@@ -253,6 +253,19 @@
   \endminipage
   }
 	
+\lstnewenvironment{codeerr}{
+  \lstset{style = mystyle}
+  \minipage[t]{\linewidth}
+  \vspace*{2pt}
+  \hspace*{2pt}
+  \textit{error:}\\
+  \measureremainder{\whatsleft}%\adjustboxWidth
+  \adjustbox{max width=\whatsleft-\codeLeftMargin, margin = \codeLeftMargin 0ex}\bgroup
+  }{
+  \egroup
+  \endminipage
+  }
+
 \surroundwithmdframed[
   %hidealllines=true,
   %backgroundcolor=lightgray,
@@ -276,6 +289,7 @@
   innerbottommargin=0pt]{unmeasuredcode}
 
 \definecolor{ndetalert}{RGB}{255, 135, 98}
+\definecolor{ndetalertbw}{RGB}{135, 135, 135}
 
 \surroundwithmdframed[
   %hidealllines=true,
@@ -287,6 +301,17 @@
   innerleftmargin=0pt,
   innertopmargin=0pt,
   innerbottommargin=0pt]{codent}
+
+\surroundwithmdframed[
+  %hidealllines=true,
+  backgroundcolor=ndetalert,
+  %outerlinewidth=2,
+  leftmargin=5,
+  rightmargin=5,
+  %outerlinecolor=ndetalert,
+  innerleftmargin=0pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt]{codeerr}
 
 \surroundwithmdframed[
   %hidealllines=true,
