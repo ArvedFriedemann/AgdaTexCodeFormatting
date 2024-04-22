@@ -151,11 +151,16 @@
     tabsize=4,
     mathescape=true, 
     breaklines = false,
+    showspaces=true,
     xleftmargin=\codeLeftMargin,
     xrightmargin=\codeLeftMargin
     %framextopmargin=10pt,
     %framexbottommargin=10pt
 }
+
+\makeatletter
+\def\lst@visiblespace{\lst@ttfamily{\char32} } % <-- hack
+\makeatother
 
 %modified from https://tex.stackexchange.com/questions/116595/highlighting-haskell-listings-in-large-tex-document
 \lstdefinestyle{haskellStyle}{
