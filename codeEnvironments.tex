@@ -70,8 +70,8 @@
 \lstdefinestyle{mystyle}
 {
     %language = C++,
-    basicstyle = {\JuliaMonoNormal},
-    %backgroundcolor = {\color{back-color}},
+    basicstyle = {\JuliaMonoNormal\color{textcolor}},
+    % backgroundcolor = {\color{codebackground}},
     %stringstyle = {\color{string-color}},
     keywordstyle = {\JuliaMonoBold},
     keywordstyle = [2]{\JuliaMonoItalic},
@@ -279,7 +279,7 @@
 
 \surroundwithmdframed[
   %hidealllines=true,
-  %backgroundcolor=lightgray,
+  backgroundcolor=codebackground,
   %outerlinewidth=2,
   leftmargin=5,
   rightmargin=5,
@@ -290,7 +290,7 @@
 
 \surroundwithmdframed[
   %hidealllines=true,
-  %backgroundcolor=lightgray,
+  backgroundcolor=codebackground,
   %outerlinewidth=2,
   leftmargin=5,
   rightmargin=5,
@@ -304,7 +304,7 @@
 
 \surroundwithmdframed[
   %hidealllines=true,
-  %backgroundcolor=lightgray,
+  backgroundcolor=codebackground,
   %outerlinewidth=2,
   leftmargin=5,
   rightmargin=5,
@@ -326,7 +326,7 @@
 
 \surroundwithmdframed[
   %hidealllines=true,
-  %backgroundcolor=lightgray,
+  backgroundcolor=codebackground,
   %outerlinewidth=2,
   leftmargin=5,
   rightmargin=5,
@@ -376,7 +376,7 @@
 	
 \surroundwithmdframed[
   %hidealllines=true,
-  %backgroundcolor=lightgray,
+  backgroundcolor=codebackground,
   %outerlinewidth=2,
   leftmargin=5,
   rightmargin=5,
@@ -386,7 +386,7 @@
   innerbottommargin=0pt]{java}
 	
 \lstnewenvironment{java}{
-	\lstset{style = haskellStyle, language = Java}
+	\lstset{style = haskellStyle, language = Java, basicstyle = {\color{textcolor}}}
 	\minipage{\linewidth}
   \adjustbox{max width=\adjustboxWidth, margin = \codeLeftMargin 0ex}\bgroup
 	}{\egroup\endminipage}
